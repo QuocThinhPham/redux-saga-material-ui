@@ -1,0 +1,85 @@
+// import * as taskApis from './../apis/tasks';
+import * as taskConstants from './../constants/tasks';
+
+export const fetchListTask = (params = {}) => {
+   return {
+      type: taskConstants.FETCH_TASKS,
+      payload: {
+         params,
+      }
+   }
+}
+
+export const fetchListTaskSuccess = data => {
+   return {
+      type: taskConstants.FETCH_TASKS_SUCCESS,
+      payload: {
+         data
+      }
+   }
+}
+
+export const fetchListTaskFailed = error => {
+   return {
+      type: taskConstants.FETCH_TASKS_FAILED,
+      payload: {
+         error
+      }
+   }
+}
+
+// export const fetchListTaskRequest = () => {
+//    return dispatch => {
+//       dispatch(fetchListTask());
+//       taskApis
+//          .getList()
+//          .then(resp => {
+//             dispatch(fetchListTaskSuccess(resp.data));
+//          })
+//          .catch(error => {
+//             dispatch(fetchListTaskFailed(error));
+//          })
+//    }
+// }
+
+export const filterTask = keyword => ({
+   type: taskConstants.FILTER_TASK,
+   payload: {
+      keyword
+   }
+})
+
+export const filterTaskSuccess = data => ({
+   type: taskConstants.FILTER_TASK_SUCCESS,
+   payload: {
+      data
+   }
+})
+
+export const addTask = (title, desc) => {
+   return {
+      type: taskConstants.ADD_TASK,
+      payload: {
+         title,
+         desc
+      }
+   }
+}
+
+export const addTaskSuccess = data => {
+   return {
+      type: taskConstants.ADD_TASK_SUCCESS,
+      payload: {
+         data
+      }
+   }
+}
+
+export const addTaskFailed = error => {
+   return {
+      type: taskConstants.ADD_TASK_FAILED,
+      payload: {
+         error
+      }
+   }
+}
